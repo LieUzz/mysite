@@ -1,0 +1,70 @@
+ul.blog-types{
+    list-style-type: none;
+}
+
+div.blog:not(:last-child){
+    margin-bottom: 2em;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+div.blog h3{
+    margin-top: 0.5em;
+}
+
+div.paginator{
+    text-align: center;
+}
+
+div.blog p.blog-info{
+    margin-bottom: 0  
+}
+
+div.comment{
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 1em;
+    margin-right: 500px;
+    margin-left: 20px;
+}
+
+ul.blog-info-description {
+    list-style-type: none;
+    margin-bottom: 2em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1em;
+}
+
+ul.blog-info-description li{
+    display: inline-block;
+    margin-right: 2em;
+}
+
+div.blog-more{
+    margin-top: 3em;
+}
+
+div.blog-info{
+    font-size: 70%;
+    color: #75878a;
+    margin-top: 0.5em;
+    display: inline-block;
+    border-top: 1px #ddd solid;
+}
+div.blog-info li{
+    float: left;
+    padding-top: 1em;
+    margin-right: 1em;
+}
+
+div.comment-area{
+    margin-top: 2em; 
+}
+h3.comment-area-title{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.4em;
+}
+
+div.django-ckeditor-widget{
+    width: 100%;
+}
+

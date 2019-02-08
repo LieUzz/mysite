@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title%}
+    Mysite|首页
+{% endblock %}
+
+{% block header_extends %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+    <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+{% endblock %}
+
+{% block nav_home_active %} 
+    active
+{% endblock%}
+
+
+
+{% block content%}
+
+    <div class="part_1" style="background-image: url({% static 'b2.jpeg' %});">
+        <!-- 
+        <div class="part_1_brief">
+            <div class="inner">   
+                <h2 class = "part_1_content">brief is all</h2>      
+            </div>
+            <div class="brief">
+                <p>凡是过往 皆为序章</p>
+                <p></p>
+            </div>
+        </div>-->
+        <div class = "guide">
+            <a href="/">
+                <p class = "glyph_down">
+                    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                </p>
+            </a>
+        </div>
+    </div>
+
+
+
+
+    <div class="part_2">
+        <h2 style="margin-bottom: 30px; color:#65c294;">—— Welcome to MyBlog ——</h2>
+        <h3 style="margin-bottom: 20px;"> 从来都说青春兵荒马乱，我们潦草离散。</h3>
+        <h3 style="margin-bottom: 20px;"> 可是，在面对成长，我们何尝有过一丝准备？</h3>
+        <h3 style="margin-bottom: 20px;"> 向来都是</h3>
+        <h3 style="margin-bottom: 20px;"> 尚未配妥剑，出门已江湖。</h3>
+        <h3 style="margin-top: 20px;"> 但愿 我们历尽千帆，归来仍少年。</h3>
+        <h3 style="margin-bottom: 20px;"> 呈此博客，记录我的生涯。</h3>
+        <h3 class="part_2_last"> 一九年二月</h3>
+    </div>
+
+
+    
+
+
+    <div class="part_3">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="panel panel-default"> <!--博客分类-->   
+                    <div class="panel-heading">近七天博客访问量</div>
+                    <div class="panel-body">
+                        <div id="container" style="width: 400px;height:250px;"></div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="col-sm-3 col-md-3 col-lg-3"> <!--最近博客 -->
+                <div class="panel panel-default"> <!--博客分类-->   
+                    <div class="panel-heading">最新博客</div>
+                    <div class="panel-body">
+                        <ul>
+                            {% for blog in new_blogs %}
+                                <div>
+                                    <ul class="hot-blog-all">
+                                        <li>
+                                            <span style="color: #2894FF" class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+                                        </li>
+                                        <li>
+                                            <p style="color: #2894FF">{{ blog.get_read_num }}</p>
+                                        </li>
+                                        <li style="margin-left: 15px;">
+                                            <a style="color: #000" class="new_blog_title" href="{% url 'blog_detail' blog.id %}">{{ blog.title }}</a>
+                                        </li>  
+                                    </ul>
+                                </div>   
+                            {% empty %}
+                                <li>暂无最新博客</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-3 col-md-3 col-lg-3"> <!--热门榜 -->
+                <div class="panel panel-default"> <!--博客分类-->   
+                    <div class="panel-heading">本月热门博客</div>
+                    <div class="panel-body">
+                        <ul>
+                            {% for hot_blog in hot_blogs_for_30_days %}
+                                <div>
+                                    <ul class="hot-blog-all">
+                                        <li>
+                                            <span style="color: #2894FF" class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+                                        </li>
+                                        <li>
+                                            <p style="color: #2894FF" class = "hot_blog_num">{{ hot_blog.read_num_sum }}</p>
+                                        </li>
+                                        <li style="margin-left: 15px;">
+                                            <a style="color: #000" class="hot_blog_title" href="{% url 'blog_detail' hot_blog.id %}">{{ hot_blog.title }}</a>
+                                        </li>  
+                                    </ul>
+                                </div>
+                                
+                                
+                            {% empty %}
+                                <li>暂无热门博客</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="part_4" >
+        
+    </div>
+
+
+    <script>
+        // 图表配置
+        var options = {
+            chart: {type: 'line'},                          //指定图表的类型，默认是折线图（line）
+            title: {text: null },               // 标题
+            xAxis: {categories: {{ dates|safe }},
+                    tickmarkPlacement: 'on', 
+                    title: {text: '前7日阅读量统计' },
+             },  // x 轴分类
+            yAxis: {
+                title: {text: null},              // y 轴标题
+                lables:{ enabled: false },
+                gridLineDashStyle:'Dash'
+            },
+            series: [{                              // 数据列
+                name: '阅读量',                        // 数据列名
+                data: {{ read_nums }}  
+                }],                   // 数据
+            plotOptions:{
+                line:{
+                    dataLables:{
+                        enabled:true
+                    }
+                }
+            },
+            legend:{enabled: false },
+            credits:{enabled: false },
+        };
+        // 图表初始化函数
+        var chart = Highcharts.chart('container', options);
+    </script>
+{% endblock %}

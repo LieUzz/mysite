@@ -1,0 +1,66 @@
+
+div#container{
+    margin:0 auto;
+}
+
+div.part_1{
+    margin-top: -70px;
+    background-size:100% 100%;
+    width: 100%;
+    height: 865px;
+}
+
+h3.part_2_last{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1em;
+}
+
+
+div.part_2{
+    text-align:center;
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 400px;
+}
+
+div.part_3{
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 400px;
+}
+
+ul.hot-blog-all li{
+    display: inline-block;
+}
+
+div.part_1 .part_1_brief {
+    color: #000;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-left: -70px;
+}
+
+.part_1 .part_1_brief .brief {
+    width: 200px;
+    margin-left: -17px;
+    font-size: 20px;
+}
+
+.part_1 .part_1_brief .inner {
+    margin-bottom: 30px;
+}
+
+.part_1 .guide p {
+    font-size: 20px;
+    color: #000;
+}
+
+.part_1 .guide {
+    height: auto;
+    padding: 10px 0;
+    left: 50%;
+    position: absolute;
+    bottom: 0;
+}
