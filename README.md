@@ -19,13 +19,14 @@ https://github.com/LieUzz/mysite
 
 ## 成品展示：
 ### 1、	首页 
-
+![image](https://github.com/LieUzz/mysite/blob/master/readme_source/pic1.png)
+      
 
 ### 2、	首页导航及欢迎语 
-
+![image](https://github.com/LieUzz/mysite/blob/master/readme_source/pic2.png)
 
 ### 3、	博客列表及分类 
-
+![image](https://github.com/LieUzz/mysite/blob/master/readme_source/pic3.png)
 
 ### 4、	后台管理 
-
+![image](https://github.com/LieUzz/mysite/blob/master/readme_source/pic4.png)
