@@ -12,8 +12,7 @@
  
 #### 博客ip地址：
 http://47.92.236.96/
-#### 博客后台ip地址：
-http://47.92.236.96/admin/
+
 #### github地址：
 https://github.com/LieUzz/mysite
 
